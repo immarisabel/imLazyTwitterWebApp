@@ -14,4 +14,4 @@ The purpose of this app is to display the use of simple Spring MVC concepts.The 
 - Twitter Account - http://twitter.com/immarisabel
 
 
-![screenshoot](https://github.com/immarisabel/imLazyTwitterWebApp/blob/master/screenshootp01.JPG)
+![screenshoot](https://github.com/immarisabel/imLazyTwitterWebApp/blob/master/screenshootp01tweet.JPG)
