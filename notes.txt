@@ -1,0 +1,29 @@
+<!---
+               <form:form action="process" modelAttribute="tweet">
+                <form:textarea name="tweet" id="tweet" rows="5" path="tweets"></form:textarea>
+
+                 <p></p><p></p>
+                 <input type="button" value="submit"  id="btnsub">
+               </form:form>
+--->
+
+
+<dependency>
+    <groupId>org.twitter4j</groupId>
+    <artifactId>twitter4j-stream</artifactId>
+    <version>4.0.6</version>
+</dependency>
+
+
+<h2> Your entry:</h2>
+${entry}
+${entry-date} : ${entry-location} - ${entry-weather}
+
+
+https://www.baeldung.com/twitter4j
+
+
+
+https://www.youtube.com/watch?v=kgNNhjTGLN0&t=427s&ab_channel=Learn21
+
+https://spring.io/guides/tutorials/rest/
