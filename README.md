@@ -12,3 +12,6 @@ The purpose of this app is to display the use of simple Spring MVC concepts.The 
 - Location API - https://rapidapi.com/natkapral/api/ip-geo-location/
 - Weather API - https://www.weatherapi.com
 - Twitter Account - http://twitter.com/immarisabel
+
+
+![screenshoot](https://github.com/immarisabel/imLazyTwitterWebApp/blob/master/screenshootp01.JPG)
