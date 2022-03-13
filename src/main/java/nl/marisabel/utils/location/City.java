@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.Getter;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -19,45 +20,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @Generated("jsonschema2pojo")
 public class City {
-
+    @Getter
     @JsonProperty("geonameid")
     private Integer geonameid;
+    @Getter
     @JsonProperty("name")
     private String name;
-    @JsonProperty("population")
-    private Integer population;
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-    @JsonProperty("geonameid")
-    public Integer getGeonameid() {
-        return geonameid;
-    }
-
-    @JsonProperty("geonameid")
-    public void setGeonameid(Integer geonameid) {
-        this.geonameid = geonameid;
-    }
-
-    @JsonProperty("name")
-    public String getName() {
-        return name;
-    }
-
-    @JsonProperty("name")
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @JsonProperty("population")
-    public Integer getPopulation() {
-        return population;
-    }
-
-    @JsonProperty("population")
-    public void setPopulation(Integer population) {
-        this.population = population;
-    }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
@@ -80,10 +51,6 @@ public class City {
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null)?"<null>":this.name));
-        sb.append(',');
-        sb.append("population");
-        sb.append('=');
-        sb.append(((this.population == null)?"<null>":this.population));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

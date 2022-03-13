@@ -1,6 +1,6 @@
 package nl.marisabel.config;
 
-import nl.marisabel.WebText;
+import nl.marisabel.dto.WebText;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

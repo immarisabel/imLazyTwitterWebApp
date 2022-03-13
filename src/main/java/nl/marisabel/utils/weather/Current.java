@@ -4,10 +4,8 @@ package nl.marisabel.utils.weather;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import com.fasterxml.jackson.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,11 +25,11 @@ public class Current {
     @JsonProperty("temp_c")
     @Getter
     @Setter
-    private Double tempC;
+    private Float tempC;
     @JsonProperty("temp_f")
     @Getter
     @Setter
-    private Double tempF;
+    private Float tempF;
     @JsonProperty("condition")
     @Getter
     @Setter
@@ -39,20 +37,28 @@ public class Current {
     @JsonProperty("feelslike_c")
     @Getter
     @Setter
-    private Double feelslikeC;
+    private Float feelslikeC;
     @JsonProperty("feelslike_f")
     @Setter
     @Getter
-    private Double feelslikeF;
+    private Float feelslikeF;
     @JsonProperty("uv")
     @Getter
     @Setter
-    private Double uv;
+    private Float uv;
 
     @JsonIgnore
-    @Getter
-    @Setter
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
 
     @Override
     public String toString() {

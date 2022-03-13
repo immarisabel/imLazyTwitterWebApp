@@ -35,6 +35,7 @@ public class GetLocation {
         LocationMain locationMain= gson.fromJson(jsonString, LocationMain.class);
         String city = locationMain.getCity().getName();
         String country = locationMain.getCountry().getName();
+        System.out.println(city + ", " + country);
         return (city + ", " + country);
     }
 

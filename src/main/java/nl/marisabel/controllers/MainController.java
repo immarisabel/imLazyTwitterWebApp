@@ -1,7 +1,7 @@
 package nl.marisabel.controllers;
 
-import nl.marisabel.Journal;
-import nl.marisabel.WebText;
+import nl.marisabel.dto.Form;
+import nl.marisabel.dto.WebText;
 import nl.marisabel.services.GetLocation;
 import nl.marisabel.services.GetWeather;
 import nl.marisabel.utils.location.LocationAPI;
@@ -26,9 +26,7 @@ import java.io.IOException;
 
 @Controller
 @ComponentScan(basePackages = "nl.marisabel")
-@SessionAttributes({"aboutTitle", "aboutContent", "linksTitle", "linksSource", "linksSourceURL", "linksLocation", "linksLocationURL",
-        "linksWeather","linkWeatherURL","linkTwitter", "linkTwitterURL","linkTwitterAccount", "linkTwitterAccountURL", "headerText","headerTitle",
-       "weather", "location" })
+@SessionAttributes({"aboutTitle", "aboutContent", "headerText","headerTitle", "weather", "location" })
 public class MainController {
 
     @Autowired
@@ -45,20 +43,8 @@ public class MainController {
     public ModelAndView main(Model model) throws IOException, InterruptedException, TwitterException {
         model.addAttribute("aboutTitle", webText.getAboutTitle());
         model.addAttribute("aboutContent", webText.getAboutContent());
-        model.addAttribute("linksTitle", webText.getLinksTitle());
-        model.addAttribute("linksSource", webText.getLinksSource());
-        model.addAttribute("linksSourceURL", webText.getLinksSourceURL());
-        model.addAttribute("linksLocation", webText.getLinksLocationAPI());
-        model.addAttribute("linksLocationURL", webText.getLinksLocationAPIURL());
-        model.addAttribute("linksWeather", webText.getLinksWeatherAPI());
-        model.addAttribute("linkWeatherURL", webText.getLinksLocationAPIURL());
-        model.addAttribute("linkTwitter", webText.getLinksTwitter4J());
-        model.addAttribute("linkTwitterURL", webText.getLinksTwitter4JURL());
-        model.addAttribute("linkTwitterAccount", webText.getTwitterAccount());
-        model.addAttribute("linkTwitterAccountURL", webText.getTwitterAccountURL());
         model.addAttribute("headerText", webText.getHeaderText());
         model.addAttribute("headerTitle", webText.getHeaderTitle());
-
 
         // WEATHER
 
@@ -71,12 +57,12 @@ public class MainController {
         model.addAttribute("weather", (condition));
         model.addAttribute("location", loc.getCityCountry(api));
 
-        return new ModelAndView("home", "journal", new Journal()) ;
+        return new ModelAndView("home", "journal", new Form()) ;
 
     }
 
     @RequestMapping(value = "/addEntry", method = RequestMethod.POST)
-    public String submit(@Valid @ModelAttribute("journal")Journal journal,
+    public String submit(@Valid @ModelAttribute("journal") Form journal,
                          BindingResult result, Model model) throws IOException, TwitterException {
         if (result.hasErrors()) {
             return "home";

@@ -1,4 +1,4 @@
-package nl.marisabel;
+package nl.marisabel.dto;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;

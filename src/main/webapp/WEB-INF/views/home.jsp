@@ -109,16 +109,10 @@
 
               <img src="https://marisabel.nl/wp-content/uploads/2020/11/avatar-e1606738130828-150x150.png" align="right">
 
-               ${aboutTitle}</p>
+
                ${aboutContent}</p>
 
-               ${linksTitle}
-                  <ul>
-                    <li><a href="${linksSourceURL}" target="new">${linksSource}</a></li>
-                    <li><a href="${linksLocationURL}" target="new">${linksLocation}</a></li>
-                    <li><a href="${linkWeatherURL}" target="new">${linksWeather}</a></li>
-                    <li><a href="${linkTwitterAccountURL}" target="new">${linkTwitterAccount}</a></li>
-                  </ul>
+
           <p></p>
               </div>
               <div class="col" style="padding-right: 10% !important;">

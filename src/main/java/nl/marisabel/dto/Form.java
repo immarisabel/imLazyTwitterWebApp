@@ -1,4 +1,4 @@
-package nl.marisabel;
+package nl.marisabel.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class Journal {
+public class Form {
     @Getter
     @Setter
     @Value("entry")
