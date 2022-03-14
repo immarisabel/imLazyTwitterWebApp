@@ -7,8 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
@@ -18,10 +20,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
         "classpath:twitter4j.properties"
 })
 @ComponentScan(basePackages = "nl.marisabel")
-public class Config {
+public class Config implements WebMvcConfigurer {
 
 
-    // set up view resolver
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -44,9 +45,11 @@ public class Config {
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry
-                .addResourceHandler("/resources/**")
-                .addResourceLocations(" /resources/");
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
     }
 
 }

@@ -17,7 +17,6 @@ public class weatherTest {
         Weather weatherService = gson.fromJson(json, Weather.class);
         System.out.println(weatherService.getCurrent().getTempC());
         System.out.println(weatherService.getCurrent().getCondition().getText());
-        System.out.println(weatherService.getLocation().getCountry());
     }
 
     @Test

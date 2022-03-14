@@ -13,7 +13,7 @@ public class TwitterAPI {
 
     public Twitter createConnection() throws IOException {
 
-        String path = "C:\\Users\\Administrator\\Documents\\Programming\\PROJECTS\\imLazyApp\\src\\main\\resources\\twitter4j.properties";
+        String path = "classpath:twitter4j.properties";
         String apikeys = path;
         Properties properties = new Properties();
         properties.load(new FileInputStream(apikeys));

@@ -21,8 +21,6 @@ import java.io.IOException;
 
 //TODO manage to put javascript on resources file
 //TODO call the properties files correctly and not direct path
-//TODO clean up POJO location
-//TODO "Hello world! Today is WEATHER in LOCATION and I feel MOOD." Button to send that instead of form.
 
 @Controller
 @ComponentScan(basePackages = "nl.marisabel")
@@ -70,7 +68,7 @@ public class MainController {
 
         TwitterAPI twitter = new TwitterAPI();
         twitter.createTweet(journal.getEntry());
-        model.addAttribute("confirmedTweet", journal.getEntry());
+        model.addAttribute("confirmedTweet", "You tweeted: " + journal.getEntry());
         model.addAttribute("confirmation", "Your tweet has been sent!");
         return "home";
     }
@@ -86,7 +84,7 @@ public class MainController {
         TwitterAPI twitter = new TwitterAPI();
         twitter.createTweet(message);
         model.addAttribute("confirmation", "Your tweet has been sent!");
-        model.addAttribute("confirmedTweet", message);
+        model.addAttribute("confirmedTweet", "You tweeted: " + message);
         return "home";
     }
 
