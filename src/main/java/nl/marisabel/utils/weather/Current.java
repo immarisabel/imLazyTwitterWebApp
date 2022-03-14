@@ -1,11 +1,9 @@
 
 package nl.marisabel.utils.weather;
-
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Generated;
-
 import com.fasterxml.jackson.annotation.*;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,43 +20,37 @@ import lombok.Setter;
 @Generated("jsonschema2pojo")
 public class Current {
 
-    @JsonProperty("temp_c")
+    @SerializedName("temp_c")
     @Getter
     @Setter
-    private Float tempC;
-    @JsonProperty("temp_f")
+    @Expose
+    private Double tempC;
+    @SerializedName("temp_f")
     @Getter
     @Setter
-    private Float tempF;
+    @Expose
+    private Double tempF;
     @JsonProperty("condition")
     @Getter
     @Setter
+    @Expose
     private Condition condition;
-    @JsonProperty("feelslike_c")
+    @SerializedName("feelslike_c")
     @Getter
     @Setter
-    private Float feelslikeC;
-    @JsonProperty("feelslike_f")
+    @Expose
+    private Double feelslikeC;
+    @SerializedName("feelslike_f")
     @Setter
     @Getter
-    private Float feelslikeF;
+    @Expose
+    private Double feelslikeF;
     @JsonProperty("uv")
     @Getter
     @Setter
-    private Float uv;
+    @Expose
+    private Double uv;
 
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
 
     @Override
     public String toString() {
@@ -87,10 +79,6 @@ public class Current {
         sb.append("uv");
         sb.append('=');
         sb.append(((this.uv == null)?"<null>":this.uv));
-        sb.append(',');
-        sb.append("additionalProperties");
-        sb.append('=');
-        sb.append(((this.additionalProperties == null)?"<null>":this.additionalProperties));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

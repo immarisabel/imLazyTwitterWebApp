@@ -116,7 +116,7 @@
           <p></p>
               </div>
               <div class="col" style="padding-right: 10% !important;">
-               ${headerTitle}
+              <a href="/home"> ${headerTitle} </a>
 
 
 
@@ -127,14 +127,18 @@
                 <form:textarea rows="8" path="entry" maxlength="280"/></p>
                 <form:errors path="entry" cssClass="alert alert-primary"/></p>
                 <h5 text-color="e2e2e2">${confirmation}</h5></p>
+                <b>You tweeted:</b> ${confirmedTweet}</p>
                 <input type="submit" value="Submit"/>
                </form:form>
-
+</p>
+                <form:form method="POST" action="/addAutoEntry" modelAttribute="journal">
+                <input type="submit" value="Auto generate tweet with weather and greeting."/>
+                </form:form>
 
 
           </div>
           </div>
-          <div class="twitter_feed">
-</div>
+
+
           </body>
           </html>

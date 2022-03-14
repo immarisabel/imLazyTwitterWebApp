@@ -37,6 +37,12 @@ public class MainController {
     private GetWeather weather;
     @Autowired
     private TwitterAPI twitter;
+    @Autowired
+    private LocationAPI locationAPI;
+
+
+    public MainController() throws IOException, InterruptedException {
+    }
 
 
     @RequestMapping(value = "/home", method= RequestMethod.GET)
@@ -46,16 +52,10 @@ public class MainController {
         model.addAttribute("headerText", webText.getHeaderText());
         model.addAttribute("headerTitle", webText.getHeaderTitle());
 
-        // WEATHER
-
-        GetWeather getWeather = new GetWeather();
-        GetLocation loc = new GetLocation();
-        LocationAPI locationAPI = new LocationAPI();
         String api = locationAPI.location();
-        String condition = getWeather.weather(loc.getLatitude(api), loc.getLongitude(api)).toLowerCase();
-
+        String condition = weather.weather(location.getLatitude(api), location.getLongitude(api));
         model.addAttribute("weather", (condition));
-        model.addAttribute("location", loc.getCityCountry(api));
+        model.addAttribute("location", location.getCityCountry(api));
 
         return new ModelAndView("home", "journal", new Form()) ;
 
@@ -70,10 +70,25 @@ public class MainController {
 
         TwitterAPI twitter = new TwitterAPI();
         twitter.createTweet(journal.getEntry());
+        model.addAttribute("confirmedTweet", journal.getEntry());
         model.addAttribute("confirmation", "Your tweet has been sent!");
         return "home";
     }
 
+    @RequestMapping(value = "/addAutoEntry", method = RequestMethod.POST)
+    public String submitAuto(@ModelAttribute("journal") Form journal, Model model) throws IOException, TwitterException, InterruptedException {
+
+        String api = locationAPI.location();
+        String condition = weather.weather(location.getLatitude(api), location.getLongitude(api));
+
+        String message = "Hello! This is my twitter webapp! I am practicing Spring and API. Today is "+ condition;
+
+        TwitterAPI twitter = new TwitterAPI();
+        twitter.createTweet(message);
+        model.addAttribute("confirmation", "Your tweet has been sent!");
+        model.addAttribute("confirmedTweet", message);
+        return "home";
+    }
 
 
 

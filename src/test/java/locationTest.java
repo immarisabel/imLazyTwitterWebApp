@@ -1,15 +1,11 @@
 import com.google.gson.Gson;
 import nl.marisabel.services.GetLocation;
-import nl.marisabel.services.GetWeather;
-import nl.marisabel.utils.location.Location;
 import nl.marisabel.utils.location.LocationAPI;
 import nl.marisabel.utils.location.LocationMain;
 import nl.marisabel.utils.weather.Weather;
 import nl.marisabel.utils.weather.WeatherAPI;
 import org.junit.Test;
-
 import java.io.IOException;
-import java.lang.reflect.Type;
 
 import static org.junit.Assert.*;
 

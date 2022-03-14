@@ -2,6 +2,7 @@ package nl.marisabel.utils.location;
 
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.MalformedJsonException;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.processing.Generated;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-@Generated("jsonschema2pojo")
+@Service
 public class LocationAPI {
 
     public String location() throws IOException, InterruptedException, JsonSyntaxException, MalformedJsonException {

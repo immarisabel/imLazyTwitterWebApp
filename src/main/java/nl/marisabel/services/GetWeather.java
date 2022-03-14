@@ -24,9 +24,10 @@ public class GetWeather {
             Gson gson= new Gson();
             Weather weatherService = gson.fromJson(json(lat,lon), Weather.class);
             String condition = weatherService.getCurrent().getCondition().getText();
-            Float temperatureC = weatherService.getCurrent().getTempC();
-            System.out.println("Weather:" + condition + " : Temp. " + temperatureC );
-            return condition;
+            Double temperatureC = weatherService.getCurrent().getTempC();
+
+            String viewTemp = (condition + " & Temp. " + temperatureC +"C");
+            return viewTemp;
     }
 
 }
