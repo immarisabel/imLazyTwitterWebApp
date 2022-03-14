@@ -1,5 +1,8 @@
+import nl.marisabel.dto.Twitter;
+import nl.marisabel.dto.WebText;
 import nl.marisabel.services.TwitterAPI;
 import org.junit.Test;
+import org.springframework.core.io.ClassPathResource;
 import twitter4j.TwitterException;
 
 import java.io.FileInputStream;
@@ -13,14 +16,8 @@ public class twitterTest {
     @Test
     public void propertiesTest() throws IOException {
 
-        String appConfigPath = "classpath:twitter4j.properties";
-
-        Properties properties = new Properties();
-        properties.load(new FileInputStream(appConfigPath));
-
-        String test = properties.getProperty("test.test");
-        assertEquals("test", test);
-
+        Twitter t = new Twitter();
+        assertEquals("test", t.getTest());
     }
 
     @Test
@@ -34,6 +31,7 @@ public class twitterTest {
         TwitterAPI twitter = new TwitterAPI();
         twitter.createTweet("Hello!");
     }
+
 
 
 

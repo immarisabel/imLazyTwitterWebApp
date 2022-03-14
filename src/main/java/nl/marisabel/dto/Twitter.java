@@ -23,4 +23,8 @@ public class Twitter {
     @Value("${oauth.accessTokenSecret}")
     public String accessTokenSecret;
 
+    @Getter
+    @Value("${test.test}")
+    public String test;
+
 }

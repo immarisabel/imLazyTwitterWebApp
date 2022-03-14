@@ -1,6 +1,7 @@
 package nl.marisabel.controllers;
 
 import nl.marisabel.dto.Form;
+import nl.marisabel.dto.Twitter;
 import nl.marisabel.dto.WebText;
 import nl.marisabel.services.GetLocation;
 import nl.marisabel.services.GetWeather;
@@ -30,11 +31,13 @@ public class MainController {
     @Autowired
     private WebText webText;
     @Autowired
+    private Twitter twitter;
+    @Autowired
     private GetLocation location;
     @Autowired
     private GetWeather weather;
     @Autowired
-    private TwitterAPI twitter;
+    private TwitterAPI twitterAPI;
     @Autowired
     private LocationAPI locationAPI;
 

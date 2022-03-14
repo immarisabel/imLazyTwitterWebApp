@@ -1,5 +1,6 @@
 package nl.marisabel.services;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
@@ -11,9 +12,14 @@ import java.util.Properties;
 @Service
 public class TwitterAPI {
 
+    private Twitter t;
+
     public Twitter createConnection() throws IOException {
 
-        String path = "classpath:twitter4j.properties";
+
+        String path = "C:\\Users\\Administrator\\Documents\\Programming\\PROJECTS\\imLazyApp\\src\\main\\resources\\twitter4j.properties";
+
+
         String apikeys = path;
         Properties properties = new Properties();
         properties.load(new FileInputStream(apikeys));
