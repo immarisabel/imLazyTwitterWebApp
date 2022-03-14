@@ -1,4 +1,4 @@
-package nl.marisabel.utils.location;
+package nl.marisabel.utils.locationPOJO;
 
 import java.util.HashMap;
 import java.util.Map;

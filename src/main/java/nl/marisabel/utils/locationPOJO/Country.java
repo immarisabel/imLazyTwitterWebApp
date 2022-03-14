@@ -1,5 +1,5 @@
 
-package nl.marisabel.utils.location;
+package nl.marisabel.utils.locationPOJO;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,17 +16,20 @@ import lombok.Getter;
 @JsonPropertyOrder({
     "geonameid",
     "name",
-    "population"
+    "code",
 })
 @Generated("jsonschema2pojo")
-public class City {
+public class Country {
+
     @Getter
     @JsonProperty("geonameid")
     private Integer geonameid;
     @Getter
     @JsonProperty("name")
     private String name;
-
+    @Getter
+    @JsonProperty("code")
+    private String code;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -43,7 +46,7 @@ public class City {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(City.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(Country.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("geonameid");
         sb.append('=');
         sb.append(((this.geonameid == null)?"<null>":this.geonameid));
@@ -51,6 +54,10 @@ public class City {
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null)?"<null>":this.name));
+        sb.append(',');
+        sb.append("code");
+        sb.append('=');
+        sb.append(((this.code == null)?"<null>":this.code));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

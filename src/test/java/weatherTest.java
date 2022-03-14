@@ -1,6 +1,6 @@
 import com.google.gson.Gson;
-import nl.marisabel.utils.weather.Weather;
-import nl.marisabel.utils.weather.WeatherAPI;
+import nl.marisabel.utils.weatherPOJO.Weather;
+import nl.marisabel.services.WeatherAPI;
 import org.junit.Test;
 
 import java.io.IOException;

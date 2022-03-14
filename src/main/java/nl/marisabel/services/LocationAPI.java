@@ -1,4 +1,4 @@
-package nl.marisabel.utils.location;
+package nl.marisabel.services;
 
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.MalformedJsonException;

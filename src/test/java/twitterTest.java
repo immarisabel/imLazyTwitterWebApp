@@ -1,4 +1,4 @@
-import nl.marisabel.utils.twitter.TwitterAPI;
+import nl.marisabel.services.TwitterAPI;
 import org.junit.Test;
 import twitter4j.TwitterException;
 

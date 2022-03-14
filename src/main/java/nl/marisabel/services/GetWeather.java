@@ -2,8 +2,7 @@ package nl.marisabel.services;
 
 
 import com.google.gson.Gson;
-import nl.marisabel.utils.weather.Weather;
-import nl.marisabel.utils.weather.WeatherAPI;
+import nl.marisabel.utils.weatherPOJO.Weather;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

@@ -1,9 +1,9 @@
 import com.google.gson.Gson;
 import nl.marisabel.services.GetLocation;
-import nl.marisabel.utils.location.LocationAPI;
-import nl.marisabel.utils.location.LocationMain;
-import nl.marisabel.utils.weather.Weather;
-import nl.marisabel.utils.weather.WeatherAPI;
+import nl.marisabel.services.LocationAPI;
+import nl.marisabel.utils.locationPOJO.LocationMain;
+import nl.marisabel.utils.weatherPOJO.Weather;
+import nl.marisabel.services.WeatherAPI;
 import org.junit.Test;
 import java.io.IOException;
 

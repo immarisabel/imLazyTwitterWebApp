@@ -1,5 +1,5 @@
 
-package nl.marisabel.utils.location;
+package nl.marisabel.utils.weatherPOJO;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,28 +10,29 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.Getter;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "geonameid",
-    "name",
-    "code",
+        "current"
 })
 @Generated("jsonschema2pojo")
-public class Country {
+public class Weather {
 
-    @Getter
-    @JsonProperty("geonameid")
-    private Integer geonameid;
-    @Getter
-    @JsonProperty("name")
-    private String name;
-    @Getter
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("current")
+    private Current current;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+
+    @JsonProperty("current")
+    public Current getCurrent() {
+        return current;
+    }
+
+    @JsonProperty("current")
+    public void setCurrent(Current current) {
+        this.current = current;
+    }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
@@ -46,18 +47,10 @@ public class Country {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Country.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("geonameid");
+        sb.append(Weather.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("current");
         sb.append('=');
-        sb.append(((this.geonameid == null)?"<null>":this.geonameid));
-        sb.append(',');
-        sb.append("name");
-        sb.append('=');
-        sb.append(((this.name == null)?"<null>":this.name));
-        sb.append(',');
-        sb.append("code");
-        sb.append('=');
-        sb.append(((this.code == null)?"<null>":this.code));
+        sb.append(((this.current == null)?"<null>":this.current));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

@@ -1,5 +1,5 @@
 
-package nl.marisabel.utils.weather;
+package nl.marisabel.utils.locationPOJO;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,33 +11,46 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
-import lombok.Setter;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "text"
+    "geonameid",
+    "name",
+    "population"
 })
 @Generated("jsonschema2pojo")
-public class Condition {
-
-    @JsonProperty("text")
+public class City {
     @Getter
-    @Setter
-    private String text;
+    @JsonProperty("geonameid")
+    private Integer geonameid;
+    @Getter
+    @JsonProperty("name")
+    private String name;
 
     @JsonIgnore
-    @Getter
-    @Setter
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Condition.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("text");
+        sb.append(City.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("geonameid");
         sb.append('=');
-        sb.append(((this.text == null)?"<null>":this.text));
+        sb.append(((this.geonameid == null)?"<null>":this.geonameid));
+        sb.append(',');
+        sb.append("name");
+        sb.append('=');
+        sb.append(((this.name == null)?"<null>":this.name));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

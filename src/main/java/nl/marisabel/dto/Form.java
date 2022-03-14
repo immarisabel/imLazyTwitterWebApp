@@ -20,7 +20,4 @@ public class Form {
     @Getter
     @Setter
     private String location;
-    @Getter
-    @Setter
-    private String date;
 }

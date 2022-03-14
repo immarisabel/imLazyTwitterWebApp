@@ -1,4 +1,4 @@
-package nl.marisabel.utils.weather;
+package nl.marisabel.services;
 
 import nl.marisabel.services.GetLocation;
 import org.springframework.stereotype.Service;

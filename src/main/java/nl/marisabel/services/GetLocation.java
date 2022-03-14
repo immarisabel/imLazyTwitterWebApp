@@ -1,8 +1,7 @@
 package nl.marisabel.services;
 
 import com.google.gson.Gson;
-import nl.marisabel.utils.location.LocationAPI;
-import nl.marisabel.utils.location.LocationMain;
+import nl.marisabel.utils.locationPOJO.LocationMain;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

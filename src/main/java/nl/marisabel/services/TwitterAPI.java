@@ -1,4 +1,4 @@
-package nl.marisabel.utils.twitter;
+package nl.marisabel.services;
 
 import org.springframework.stereotype.Service;
 import twitter4j.*;

@@ -1,11 +1,11 @@
-package nl.marisabel.utils.twitter;
+package nl.marisabel.dto;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("twitter")
-public class TwitterAPIKeys {
+public class Twitter {
 
     @Getter
     @Value("${oauth.consumerKey}")
@@ -23,7 +23,4 @@ public class TwitterAPIKeys {
     @Value("${oauth.accessTokenSecret}")
     public String accessTokenSecret;
 
-    @Getter
-    @Value("${test.test}")
-    public String test;
 }
