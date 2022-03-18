@@ -1,6 +1,6 @@
 package nl.marisabel.config;
 
-import nl.marisabel.dto.WebText;
+import nl.marisabel.dto.WebTextDTO;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,7 +17,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @PropertySource({
         "classpath:webtext.properties",
-        "classpath:twitter4j.properties"
+        "classpath:ApiKeys.properties"
 })
 @ComponentScan(basePackages = "nl.marisabel")
 public class Config implements WebMvcConfigurer {
@@ -39,8 +39,8 @@ public class Config implements WebMvcConfigurer {
     }
 
     @Bean
-    public WebText webText() {
-        WebText text = new WebText();
+    public WebTextDTO webText() {
+        WebTextDTO text = new WebTextDTO();
         return text;
     }
 

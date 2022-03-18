@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component("webtext")
-public class WebText {
+public class WebTextDTO {
 
     @Getter
     @Value("${text.header.title}")

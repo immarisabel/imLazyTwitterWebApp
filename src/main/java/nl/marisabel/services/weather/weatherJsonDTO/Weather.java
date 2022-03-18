@@ -1,5 +1,5 @@
 
-package nl.marisabel.utils.locationPOJO;
+package nl.marisabel.services.weather.weatherJsonDTO;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,25 +10,29 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.Getter;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "geonameid",
-    "name",
-    "population"
+        "current"
 })
 @Generated("jsonschema2pojo")
-public class City {
-    @Getter
-    @JsonProperty("geonameid")
-    private Integer geonameid;
-    @Getter
-    @JsonProperty("name")
-    private String name;
+public class Weather {
 
+    @JsonProperty("current")
+    private Current current;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+
+    @JsonProperty("current")
+    public Current getCurrent() {
+        return current;
+    }
+
+    @JsonProperty("current")
+    public void setCurrent(Current current) {
+        this.current = current;
+    }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
@@ -43,14 +47,10 @@ public class City {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(City.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("geonameid");
+        sb.append(Weather.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("current");
         sb.append('=');
-        sb.append(((this.geonameid == null)?"<null>":this.geonameid));
-        sb.append(',');
-        sb.append("name");
-        sb.append('=');
-        sb.append(((this.name == null)?"<null>":this.name));
+        sb.append(((this.current == null)?"<null>":this.current));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

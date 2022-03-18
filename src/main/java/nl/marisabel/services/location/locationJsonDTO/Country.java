@@ -1,5 +1,5 @@
 
-package nl.marisabel.utils.locationPOJO;
+package nl.marisabel.services.location.locationJsonDTO;
 
 import java.util.HashMap;
 import java.util.Map;

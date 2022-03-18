@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Value;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class Form {
+public class FormDTO {
     @Getter
     @Setter
-    @Value("entry")
+    @Value("tweet")
     @Size(min = 1, max=280, message="Please make sure to type something!")
     @NotNull
-    private String entry;
+    private String tweet;
     @Getter
     @Setter
     private String weather;

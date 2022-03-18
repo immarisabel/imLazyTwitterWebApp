@@ -1,4 +1,5 @@
-package nl.marisabel.utils.locationPOJO;
+
+package nl.marisabel.services.location.locationJsonDTO;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,41 +10,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.Getter;
+import nl.marisabel.services.location.LocationAPI;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "latitude",
-        "longitude"
+    "location",
+    "city",
+    "country",
 })
 @Generated("jsonschema2pojo")
-public class Location {
+public class LocationMain {
 
-    @JsonProperty("latitude")
-    private Double latitude;
-    @JsonProperty("longitude")
-    private Double longitude;
+    @Getter
+    @JsonProperty("location")
+    private Location location;
+    @Getter
+    @JsonProperty("city")
+    private City city;
+    @Getter
+    @JsonProperty("country")
+    private Country country;
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-    @JsonProperty("latitude")
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    @JsonProperty("latitude")
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    @JsonProperty("longitude")
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    @JsonProperty("longitude")
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
@@ -58,14 +48,18 @@ public class Location {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Location.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("latitude");
+        sb.append(LocationAPI.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("location");
         sb.append('=');
-        sb.append(((this.latitude == null)?"<null>":this.latitude));
+        sb.append(((this.location == null)?"<null>":this.location));
         sb.append(',');
-        sb.append("longitude");
+        sb.append("city");
         sb.append('=');
-        sb.append(((this.longitude == null)?"<null>":this.longitude));
+        sb.append(((this.city == null)?"<null>":this.city));
+        sb.append(',');
+        sb.append("country");
+        sb.append('=');
+        sb.append(((this.country == null)?"<null>":this.country));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

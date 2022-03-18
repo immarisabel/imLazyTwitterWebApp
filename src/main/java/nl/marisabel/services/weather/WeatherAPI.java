@@ -1,6 +1,7 @@
-package nl.marisabel.services;
+package nl.marisabel.services.weather;
 
-import nl.marisabel.services.GetLocation;
+import nl.marisabel.services.LoadApiKeysPropertiesFile;
+import nl.marisabel.services.location.LocationService;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -13,9 +14,10 @@ import java.net.http.HttpResponse;
 public class WeatherAPI {
 
     public String weather(double lat, double lon) throws IOException, InterruptedException {
-        GetLocation getLocation = new GetLocation();
+
+        LoadApiKeysPropertiesFile apiKeys = new LoadApiKeysPropertiesFile();
         String uriString1 = "https://api.weatherapi.com/v1/current.json?key=";
-        String key = "e0477b84612f4249b0c133415211608";
+        String key = apiKeys.weatherApiKey();
         String uriString2 = "&q=";
         String uriString3 = "&aqi=no";
 

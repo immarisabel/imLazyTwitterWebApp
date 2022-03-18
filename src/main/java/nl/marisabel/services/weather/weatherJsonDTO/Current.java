@@ -1,5 +1,5 @@
 
-package nl.marisabel.utils.weatherPOJO;
+package nl.marisabel.services.weather.weatherJsonDTO;
 import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.*;
 import com.google.gson.annotations.Expose;

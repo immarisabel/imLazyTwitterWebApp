@@ -1,42 +1,42 @@
-package nl.marisabel.services;
+package nl.marisabel.services.location;
 
 import com.google.gson.Gson;
-import nl.marisabel.utils.locationPOJO.LocationMain;
+import nl.marisabel.services.location.locationJsonDTO.LocationMain;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 @Service
-public class GetLocation {
+public class LocationService {
 
-
-    public String json() throws IOException, InterruptedException {
-        LocationAPI api = new LocationAPI();
-        return api.location();
+    private String getJson() throws IOException, InterruptedException {
+        LocationAPI locationAPI = new LocationAPI();
+        return locationAPI.location();
     }
 
     public Double getLatitude(String jsonString) throws IOException, InterruptedException {
         Gson gson = new Gson();
-        LocationMain locationMain = gson.fromJson(jsonString, LocationMain.class);
+        LocationMain locationMain = gson.fromJson(getJson(), LocationMain.class);
         double lat = locationMain.getLocation().getLatitude();
         return (lat);
     }
 
     public Double getLongitude(String jsonString) throws IOException, InterruptedException {
         Gson gson = new Gson();
-        LocationMain locationMain = gson.fromJson(jsonString, LocationMain.class);
+        LocationMain locationMain = gson.fromJson(getJson(), LocationMain.class);
         double lon = locationMain.getLocation().getLongitude();
         return (lon);
     }
 
-    public String getCityCountry(String jsonString){
+    public String getCityCountry() throws IOException, InterruptedException {
         Gson gson = new Gson();
-        LocationMain locationMain= gson.fromJson(jsonString, LocationMain.class);
+        LocationMain locationMain= gson.fromJson(getJson(), LocationMain.class);
         String city = locationMain.getCity().getName();
         String country = locationMain.getCountry().getName();
-        System.out.println(city + ", " + country);
+        System.out.println("from service: " + getJson());
         return (city + ", " + country);
     }
+
 
 }
 

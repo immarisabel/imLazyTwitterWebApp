@@ -1,11 +1,11 @@
-package nl.marisabel.dto;
+package nl.marisabel.services.twitter;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("twitter")
-public class Twitter {
+public class TwitterKeysDTO {
 
     @Getter
     @Value("${oauth.consumerKey}")

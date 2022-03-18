@@ -1,39 +1,44 @@
-import nl.marisabel.dto.Twitter;
-import nl.marisabel.dto.WebText;
-import nl.marisabel.services.TwitterAPI;
-import org.junit.Test;
-import org.springframework.core.io.ClassPathResource;
+import nl.marisabel.services.twitter.TwitterAPI;
+import nl.marisabel.services.twitter.TwitterService;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+
+@ExtendWith(MockitoExtension.class)
+@DisplayName("Testing Twitter Service")
 public class twitterTest {
 
-    @Test
-    public void propertiesTest() throws IOException {
+    @Mock
+    private TwitterService twitterService;
 
-        Twitter t = new Twitter();
-        assertEquals("test", t.getTest());
+    @Mock
+    private TwitterAPI api;
+
+    @Test
+    @DisplayName("Does it send tweet to DTO?")
+    public void testCreateTweet() throws IOException, TwitterException {
+        TwitterService twitterService = new TwitterService();
+        twitterService.createTweet("A test tweet");
+        assertEquals("A test tweet", twitterService.getTweet());
+        // succesful also send the tweet to my account
     }
 
     @Test
-    public void connectiontest() throws IOException {
-        TwitterAPI twitter = new TwitterAPI();
-        System.out.println(twitter.createConnection());
+    @DisplayName("Does it connect to API?")
+    public void testTwitterApiConnection() throws IOException {
+        TwitterAPI api = new TwitterAPI();
+        Twitter connect = api.createConnection();
+        assertNotNull(connect);
     }
-
-    @Test
-    public void sendTweetTest() throws IOException, TwitterException {
-        TwitterAPI twitter = new TwitterAPI();
-        twitter.createTweet("Hello!");
-    }
-
-
-
-
 
 }

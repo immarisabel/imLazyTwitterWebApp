@@ -1,5 +1,5 @@
 
-package nl.marisabel.utils.locationPOJO;
+package nl.marisabel.services.location.locationJsonDTO;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,26 +11,21 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
-import nl.marisabel.services.LocationAPI;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "location",
-    "city",
-    "country",
+    "geonameid",
+    "name",
+    "population"
 })
 @Generated("jsonschema2pojo")
-public class LocationMain {
-
+public class City {
     @Getter
-    @JsonProperty("location")
-    private Location location;
+    @JsonProperty("geonameid")
+    private Integer geonameid;
     @Getter
-    @JsonProperty("city")
-    private City city;
-    @Getter
-    @JsonProperty("country")
-    private Country country;
+    @JsonProperty("name")
+    private String name;
 
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
@@ -48,18 +43,14 @@ public class LocationMain {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(LocationAPI.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("location");
+        sb.append(City.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("geonameid");
         sb.append('=');
-        sb.append(((this.location == null)?"<null>":this.location));
+        sb.append(((this.geonameid == null)?"<null>":this.geonameid));
         sb.append(',');
-        sb.append("city");
+        sb.append("name");
         sb.append('=');
-        sb.append(((this.city == null)?"<null>":this.city));
-        sb.append(',');
-        sb.append("country");
-        sb.append('=');
-        sb.append(((this.country == null)?"<null>":this.country));
+        sb.append(((this.name == null)?"<null>":this.name));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

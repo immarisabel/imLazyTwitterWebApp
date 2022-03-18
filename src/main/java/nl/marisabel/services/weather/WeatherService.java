@@ -1,18 +1,20 @@
-package nl.marisabel.services;
-
+package nl.marisabel.services.weather;
 
 import com.google.gson.Gson;
-import nl.marisabel.utils.weatherPOJO.Weather;
+import nl.marisabel.services.weather.weatherJsonDTO.Weather;
+import nl.marisabel.services.location.LocationService;
+import nl.marisabel.services.location.LocationAPI;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 @Service
-public class GetWeather {
+public class WeatherService {
 
-    private Weather weather;
+    private LocationAPI locationAPI;
+    private LocationService location;
 
-    public String json(double lat, double lon) throws IOException, InterruptedException {
+    private String json(double lat, double lon) throws IOException, InterruptedException {
             Gson gson = new Gson();
             WeatherAPI weather = new WeatherAPI();
             String json = weather.weather(lat,lon);
@@ -28,5 +30,12 @@ public class GetWeather {
             String viewTemp = (condition + " & Temp. " + temperatureC +"C");
             return viewTemp;
     }
+
+    public String sendWeatherToView() throws IOException, InterruptedException {
+        String api = locationAPI.location();
+        String condition = weather(location.getLatitude(api), location.getLongitude(api));
+        return condition;
+    }
+
 
 }

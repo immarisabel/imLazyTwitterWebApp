@@ -61,7 +61,7 @@
 
 
 
-                <form:form method="POST" action="/addEntry" modelAttribute="journal">
+                <form:form method="POST" action="/addTweet" modelAttribute="tweet">
 
                  <b>Weather:</b> ${weather}</br>
                  <b>Location:</b> ${location}</p>
@@ -72,7 +72,7 @@
                 <input type="submit" value="Submit"/>
                </form:form>
 </p>
-                <form:form method="POST" action="/addAutoEntry" modelAttribute="journal">
+                <form:form method="POST" action="/addAutoTweet" modelAttribute="tweet">
                 <input type="submit" value="Auto generate tweet with weather and greeting."/>
                 </form:form>
 
